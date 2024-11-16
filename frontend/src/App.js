@@ -74,9 +74,9 @@ function App() {
   const [minute, setMinute] = useState('0');
 
   const [resuts, setResults] = useState({
-    longitude: null,
-    latitude: null,
-    altitude: null,
+    longitude: '---',
+    latitude: '---',
+    heading: '---',
   });
 
   const handleFileChange = (position) => (event) => {
@@ -153,11 +153,14 @@ function App() {
         color="#5b6f95"
         refresh
       />
-      <div className="text-5xl font-bold mt-10 mb-4 text-center">wya? we know!</div>
-      <div className="text-lg font-semibold text-center text-muted-foreground">
+      <div className="text-5xl font-bold mt-10 mb-4 flex justify-center items-center">
+      <img className="w-16 h-16" src="/logo.png"/>
+      <div>StarFinder.ai</div>
+      </div>
+      <div className="text-sm italic text-center text-muted-foreground">
         Ever confused about where you are? Don't know where you are going? We got you covered!
       </div>
-      <form onSubmit={handleSubmit} className="p-10">
+      <form onSubmit={handleSubmit} className="p-8">
         <div id="image-upload" className="grid grid-cols-2 gap-4 m-auto">
           <ImageInputCard
             label="Bow"
@@ -254,43 +257,49 @@ function App() {
           </Card>
         </div>
 
-        <div className="mt-6 flex justify-end">
+        <div className="mt-6 flex justify-center">
           <Button type="submit" size="lg">
             Submit
           </Button>
         </div>
       </form>
 
-      <div className="w-full px-10 rounded-md">
+      <div className="w-full px-16 h-0.5 mb-8">
+      <div className="w-full h-full bg-border rounded">
+        
+        </div>
+      </div>
+
+      <div className="w-full px-8 rounded-md">
         <div className="w-full flex gap-4">
-          <Card className="bg-popover grow">
+          <Card className="bg-card grow">
             <CardHeader className="text-lg">
               Longitude
             </CardHeader>
             <CardContent>
             <div className="text-2xl font-semibold">
-              {"numbers"}
+              {resuts.longitude}
             </div>
             </CardContent>
           </Card>
 
-          <Card className="bg-popover grow">
+          <Card className="bg-card grow">
             <CardHeader className="text-lg">
-              Longitude
+              Latitude
             </CardHeader>
             <CardContent>
             <div className="text-2xl font-semibold">
-              {"numbers"}
+              {resuts.latitude}
             </div></CardContent>
           </Card>
 
-          <Card className="bg-popover grow">
+          <Card className="bg-card grow">
             <CardHeader className="text-lg">
-              Longitude
+              Heading
             </CardHeader>
             <CardContent>
             <div className="text-2xl font-semibold">
-              {"numbers"}
+              {resuts.heading}
             </div></CardContent>
           </Card>
 
