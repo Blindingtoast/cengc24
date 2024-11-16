@@ -136,7 +136,7 @@ function App() {
       <img className="w-16 h-16" src="/logo.png"/>
       <div>StarFinder.ai</div>
       </div>
-      <div className="text-lg font-semibold text-center text-muted-foreground">
+      <div className="text-sm italic text-center text-muted-foreground">
         Ever confused about where you are? Don't know where you are going? We got you covered!
       </div>
       <form onSubmit={handleSubmit} className="p-8">
