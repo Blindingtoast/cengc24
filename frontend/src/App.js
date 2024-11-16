@@ -132,11 +132,14 @@ function App() {
         color="#5b6f95"
         refresh
       />
-      <div className="text-5xl font-bold mt-10 mb-4 text-center">wya? we know!</div>
+      <div className="text-5xl font-bold mt-10 mb-4 flex justify-center items-center">
+      <img className="w-16 h-16" src="/logo.png"/>
+      <div>StarFinder.ai</div>
+      </div>
       <div className="text-lg font-semibold text-center text-muted-foreground">
         Ever confused about where you are? Don't know where you are going? We got you covered!
       </div>
-      <form onSubmit={handleSubmit} className="p-10">
+      <form onSubmit={handleSubmit} className="p-8">
         <div id="image-upload" className="grid grid-cols-2 gap-4 m-auto">
           <ImageInputCard
             label="Bow"
@@ -246,7 +249,7 @@ function App() {
         </div>
       </div>
 
-      <div className="w-full px-10 rounded-md">
+      <div className="w-full px-8 rounded-md">
         <div className="w-full flex gap-4">
           <Card className="bg-card grow">
             <CardHeader className="text-lg">
