@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState } from "react";
 import { Button } from "./components/ui/button";
 import { Input } from "./components/ui/input";
@@ -116,12 +117,32 @@ function App() {
     }
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log("Submitted Images:", images);
+  const handleSubmit = async (event) => {
+    event.preventDefault(); // Prevent default form submission behavior
 
+    const formData = new FormData();
 
-  };
+    // Append images to formData
+    Object.keys(images).forEach((position) => {
+        if (images[position]) {
+            formData.append(position, images[position]);
+        }
+    });
+
+    try {
+        const response = await axios.post('/upload', formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+        });
+        console.log(response.data);
+        alert('Files uploaded successfully!');
+    } catch (error) {
+        console.error('Error uploading files:', error);
+        alert('Failed to upload files. Please try again.');
+    }
+};
+
 
   return (
     <div className="max-w-[1000px] m-auto">
