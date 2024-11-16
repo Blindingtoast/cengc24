@@ -73,9 +73,9 @@ function App() {
   const [minute, setMinute] = useState('0');
 
   const [resuts, setResults] = useState({
-    longitude: null,
-    latitude: null,
-    altitude: null,
+    longitude: '---',
+    latitude: '---',
+    heading: '---',
   });
 
   const handleFileChange = (position) => (event) => {
@@ -233,43 +233,49 @@ function App() {
           </Card>
         </div>
 
-        <div className="mt-6 flex justify-end">
+        <div className="mt-6 flex justify-center">
           <Button type="submit" size="lg">
             Submit
           </Button>
         </div>
       </form>
 
+      <div className="w-full px-16 h-0.5 mb-8">
+      <div className="w-full h-full bg-border rounded">
+        
+        </div>
+      </div>
+
       <div className="w-full px-10 rounded-md">
         <div className="w-full flex gap-4">
-          <Card className="bg-popover grow">
+          <Card className="bg-card grow">
             <CardHeader className="text-lg">
               Longitude
             </CardHeader>
             <CardContent>
             <div className="text-2xl font-semibold">
-              {"numbers"}
+              {resuts.longitude}
             </div>
             </CardContent>
           </Card>
 
-          <Card className="bg-popover grow">
+          <Card className="bg-card grow">
             <CardHeader className="text-lg">
-              Longitude
+              Latitude
             </CardHeader>
             <CardContent>
             <div className="text-2xl font-semibold">
-              {"numbers"}
+              {resuts.latitude}
             </div></CardContent>
           </Card>
 
-          <Card className="bg-popover grow">
+          <Card className="bg-card grow">
             <CardHeader className="text-lg">
-              Longitude
+              Heading
             </CardHeader>
             <CardContent>
             <div className="text-2xl font-semibold">
-              {"numbers"}
+              {resuts.heading}
             </div></CardContent>
           </Card>
 
