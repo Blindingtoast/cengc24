@@ -30,7 +30,9 @@ dependencies = [
   "Flask-SQLAlchemy",
   "psycopg2-binary", 
   "Werkzeug", 
-  "flask-cors"]
+  "flask-cors",
+  "torch"
+  ]
 
 [project.urls]
 Documentation = "https://github.com/AngusJull/backend#readme"
