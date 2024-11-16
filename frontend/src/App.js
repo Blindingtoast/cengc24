@@ -13,16 +13,22 @@ import {
   CardTitle,
 } from "./components/ui/card";
 
-function ImageInputCard({ label, accept, onChange }) {
+function ImageInputCard({ label, onChange }) {
   const [preview, setPreview] = useState(null);
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
-    accept,
+    accept: { "image/gif": [".gif"] }, // Restrict to .gif files
     onDrop: (acceptedFiles) => {
       if (acceptedFiles.length > 0) {
         const file = acceptedFiles[0];
-        setPreview(URL.createObjectURL(file));
-        onChange({ target: { files: acceptedFiles } });
+
+        // Validate the file type explicitly
+        if (file.type === "image/gif") {
+          setPreview(URL.createObjectURL(file));
+          onChange({ target: { files: acceptedFiles } });
+        } else {
+          alert("Only GIF files are allowed.");
+        }
       }
     },
   });
@@ -30,11 +36,12 @@ function ImageInputCard({ label, accept, onChange }) {
   return (
     <Card className="w-auto">
       <CardTitle>{label}</CardTitle>
-      <CardContent >
+      <CardContent>
         <div
           {...getRootProps()}
-          className={`border border-dashed rounded-lg flex gap-4 p-4 items-center cursor-pointer ${isDragActive ? "bg-gray-100 border-blue-500" : ""
-            }`}
+          className={`border border-dashed rounded-lg flex gap-4 p-4 items-center cursor-pointer ${
+            isDragActive ? "bg-gray-100 border-blue-500" : ""
+          }`}
         >
           <div>
             {preview ? (
@@ -45,14 +52,16 @@ function ImageInputCard({ label, accept, onChange }) {
                   className="w-24 h-24 object-cover rounded-md border"
                 />
               </div>
-            ) :
-              <div className="w-24 h-24 bg-muted rounded-md flex justify-center items-center"><FileIcon className="w-6 h-6" /></div>
-            }
+            ) : (
+              <div className="w-24 h-24 bg-muted rounded-md flex justify-center items-center">
+                <FileIcon className="w-6 h-6" />
+              </div>
+            )}
           </div>
           <div>
             <input {...getInputProps()} />
             <span className="text-sm font-medium text-muted">
-              Drag and drop an image or click to browse
+              Drag and drop a .GIF image or click to browse
             </span>
           </div>
         </div>
