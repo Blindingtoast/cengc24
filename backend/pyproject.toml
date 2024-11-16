@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools"] 
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "backend"
+dynamic = ["version"]
+description = ''
+readme = "README.md"
+requires-python = ">=3.8"
+license = { file = "LICENSE.txt" }
+keywords = []
+authors = [
+  { name = "Angus Jull", email = "angusjull1@gmail.com" },
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+]
+
+dependencies = [
+  "Flask", 
+  "Flask-SQLAlchemy",
+  "psycopg2-binary", 
+  "Werkzeug", 
+  "FLask-Cors"]
+
+[project.urls]
+Documentation = "https://github.com/AngusJull/backend#readme"
+Issues = "https://github.com/AngusJull/backend/issues"
+Source = "https://github.com/AngusJull/backend"
+
+[project.scripts]
+backend = "app.app:main"

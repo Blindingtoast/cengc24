@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: backend
+Version: 0.0.0
+Author-email: Angus Jull <angusjull1@gmail.com>
+Project-URL: Documentation, https://github.com/AngusJull/backend#readme
+Project-URL: Issues, https://github.com/AngusJull/backend/issues
+Project-URL: Source, https://github.com/AngusJull/backend
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: Flask
+Requires-Dist: Flask-SQLAlchemy
+Requires-Dist: psycopg2-binary
+Requires-Dist: Werkzeug
+Requires-Dist: FLask-Cors
+
+# backend
+
+## Table of Contents
+
+- [Installation](#installation)
+
+## Installation
+
+```console
+pip install backend
+```
