@@ -127,8 +127,8 @@ function App() {
     <div className="max-w-[1000px] m-auto">
       <Particles
         className="absolute inset-0"
-        quantity={100}
-        ease={80}
+        quantity={200}
+        ease={10}
         color="#5b6f95"
         refresh
       />
@@ -140,7 +140,7 @@ function App() {
         Ever confused about where you are? Don't know where you are going? We got you covered!
       </div>
       <form onSubmit={handleSubmit} className="p-8">
-        <div id="image-upload" className="grid grid-cols-2 gap-4 m-auto">
+        <div id="image-upload" className="grid sm:grid-cols-2 gap-4 m-auto">
           <ImageInputCard
             label="Bow"
             accept="image/*"
@@ -237,7 +237,7 @@ function App() {
         </div>
 
         <div className="mt-6 flex justify-center">
-          <Button type="submit" size="lg">
+          <Button type="submit" className="w-full">
             Submit
           </Button>
         </div>
@@ -249,8 +249,8 @@ function App() {
         </div>
       </div>
 
-      <div className="w-full px-8 rounded-md">
-        <div className="w-full flex gap-4">
+      <div className="w-full px-8 pb-8">
+        <div className="w-full grid sm:grid-cols-3 gap-4">
           <Card className="bg-card grow">
             <CardHeader className="text-lg">
               Longitude
