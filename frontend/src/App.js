@@ -8,6 +8,7 @@ import {
   Card,
   CardContent,
   CardFooter,
+  CardHeader,
   CardTitle,
 } from "./components/ui/card";
 
@@ -71,8 +72,11 @@ function App() {
   const [hour, setHour] = useState('0');
   const [minute, setMinute] = useState('0');
 
-  const daysInMonth = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-  const [color, setColor] = useState("#ffffff");
+  const [resuts, setResults] = useState({
+    longitude: null,
+    latitude: null,
+    altitude: null,
+  });
 
   const handleFileChange = (position) => (event) => {
     const file = event.target.files[0];
@@ -91,6 +95,7 @@ function App() {
   };
 
   const handleDayChange = (e) => {
+    const daysInMonth = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
     const value = e.target.value;
     if (value === '' || (Number(value) >= 1 && Number(value) <= (daysInMonth[month] || 31))) {
       setDay(value);
@@ -114,6 +119,8 @@ function App() {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log("Submitted Images:", images);
+
+
   };
 
   return (
@@ -122,7 +129,7 @@ function App() {
         className="absolute inset-0"
         quantity={100}
         ease={80}
-        color={color}
+        color="#5b6f95"
         refresh
       />
       <div className="text-5xl font-bold mt-10 mb-4 text-center">wya? we know!</div>
@@ -233,34 +240,38 @@ function App() {
         </div>
       </form>
 
-      <div className="w-full h-36 px-10 rounded-md">
-        <div className="w-full h-full bg-popover rounded-md flex justify-between">
-          <div>
-            <div className="text-lg p-6">
+      <div className="w-full px-10 rounded-md">
+        <div className="w-full flex gap-4">
+          <Card className="bg-popover grow">
+            <CardHeader className="text-lg">
               Longitude
-            </div>
+            </CardHeader>
+            <CardContent>
             <div className="text-2xl font-semibold">
               {"numbers"}
             </div>
-          </div>
+            </CardContent>
+          </Card>
 
-          <div>
-            <div className="text-lg p-6">
+          <Card className="bg-popover grow">
+            <CardHeader className="text-lg">
               Longitude
-            </div>
+            </CardHeader>
+            <CardContent>
             <div className="text-2xl font-semibold">
               {"numbers"}
-            </div>
-          </div>
+            </div></CardContent>
+          </Card>
 
-          <div>
-            <div className="text-lg p-6">
+          <Card className="bg-popover grow">
+            <CardHeader className="text-lg">
               Longitude
-            </div>
+            </CardHeader>
+            <CardContent>
             <div className="text-2xl font-semibold">
               {"numbers"}
-            </div>
-          </div>
+            </div></CardContent>
+          </Card>
 
         </div>
       </div>
